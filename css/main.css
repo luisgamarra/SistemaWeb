@@ -157,7 +157,31 @@ h2::after{
   height: 30px;
   width: 100px;
   display: block;
-
+}
+h3{
+  font-size: 1.8em;
+  color: #da273e;
+  font-family: 'PT Sans', sans-serif;
+  margin: 0;
+}
+.button{
+  background-color: #da273e;
+  padding: 10px 40px;
+  color: #FFFFFF;
+  text-transform:   uppercase;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-top: 20px;
+  display: inline-block;
+  transition: all 1s ease;
+}
+.button:hover{
+  background-color: red;
+}
+.float-right{
+  float: right;
 }
 /** header **/
 div.hero{
@@ -356,7 +380,50 @@ div.programa-evento{
     width: 50%
   }
 }
-
+nav.menu-programa{
+  width: 100%;
+  border-bottom: 1px solid #da273e;
+  padding-bottom: 10px;
+}
+@media only screen and (min-width: 768px){
+  nav.menu-programa{
+    display: table;
+  }
+}
+nav.menu-programa a{
+  display: block;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  font-family: 'Oswald',sans-serif;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+@media only screen and (min-width: 768px){
+  nav.menu-programa a{
+    display: table-cell;
+  }
+}
+nav.menu-programa a i,
+div.detalle-evento p i{
+  color: #da273e;
+  font-size: 1.2em;
+  margin-right: 10px
+}
+/**Detalle de Reuniones**/
+div.detalle-evento{
+  margin-top: 20px;
+  border-bottom: 1px solid #da273e;
+  padding: 0 20px;
+}
+div.detalle-evento:nth-child(2){
+  border: none;
+  border-bottom: 1px solid #da273e;
+}
+div.detalle-evento p {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
 
 /* ==========================================================================
    Helper classes
