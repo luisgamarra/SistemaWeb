@@ -216,7 +216,7 @@ h1.nombre-sitio{
 /** Barra **/
 div.barra{
   background-color: #da273e;
-  padding: 20px 0;
+  padding: 50px 0;
 }
 div.logo{
   width: 80%;
@@ -248,8 +248,30 @@ nav.navegacion-principal a {
     text-align: right;
     display: block;
   }
+  nav.navegacion-principal a{
+    margin-right: 10px;
+    padding: 10px 10px;
+    display: inline-block;
+  }
 }
 
+/** Menu Mobile**/
+div.menu-movil{
+  width: 60px;
+  display: block;
+  float: right;
+  text-align: right;
+  margin-top: 12px;
+}
+div.menu-movil span{
+  height: 8px;
+  margin-bottom: 6px;
+  background-color: white;
+  display: block;
+}
+@media only screen and (min) {
+
+}
 
 
 
