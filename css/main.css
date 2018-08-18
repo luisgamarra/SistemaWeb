@@ -219,15 +219,16 @@ div.barra{
   padding: 50px 0;
 }
 div.logo{
-  width: 80%;
+  width: 80
+    float: left;
 }
 div.logo img{
   width: 100%;
 }
-@media only screen and (min-width: 768px){
+@media only screen and (min-width:768px){
   div.logo{
     width: 33%;
-    float: left;
+
   }
 }
 /**Navegcion principal**/
@@ -240,8 +241,25 @@ nav.navegacion-principal a {
   font-size: 1.3em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: all .6s ease;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-bottom: 20px;
+
 }
-@media only screen and (min-width: 768px){
+nav.navegacion-principal a:hover{
+  background-color: #FFFFFF;
+  color: #da273e;
+}
+nav.navegacion-principal a:last-child{
+  border: 2px solid  #FFFFFF;
+}
+nav.navegacion-principal a:last-child:hover{
+  color: #FFFFFF
+  color: #da273e;
+}
+@media only screen and (min-width:768px){
   nav.navegacion-principal{
     width: 67%;
     float: right;
@@ -252,6 +270,10 @@ nav.navegacion-principal a {
     margin-right: 10px;
     padding: 10px 10px;
     display: inline-block;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px 0 0;
   }
 }
 
@@ -262,16 +284,24 @@ div.menu-movil{
   float: right;
   text-align: right;
   margin-top: 12px;
+
 }
+div.menu-movil:hover{
+  cursor: pointer;
+}
+@media only screen and (min-width:768px) {
+  div.menu-movil{
+    display: none;
+  }
+}
+
 div.menu-movil span{
   height: 8px;
   margin-bottom: 6px;
   background-color: white;
   display: block;
 }
-@media only screen and (min) {
 
-}
 
 
 
