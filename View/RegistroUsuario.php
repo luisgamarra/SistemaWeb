@@ -3,7 +3,7 @@
  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Target Material Design Bootstrap Admin Template</title>
+    <title>Target Material Design Bootstrap Admin Template</title> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
@@ -16,7 +16,7 @@
     <link href="../css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../js/Lightweight-Chart/cssCharts.css">
+    <link rel="stylesheet" href="../js/Lightweight-Chart/cssCharts.css"> 
 </head>
   <body>
 
@@ -35,11 +35,11 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
+          
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="login.php">Iniciar Sesión</a></li>
-            <li class="active"><a href="registrarse.php">Regístrate</a></li>
+            <li><a href="LoginUsuario.php">Iniciar Sesión</a></li>
+            <li class="active"><a href="RegistroUsuario.php">Regístrate</a></li>
 
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -92,7 +92,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label" for="RC" style="color: #F0FFFF">Repite Contraseña</label>
           <div class="col-md-5">
-          <input id="RC" name="txtrc" type="password" placeholder="Repite contraseña" class="form-control input-md"
+          <input id="RC" name="txtrc" type="password" placeholder="Repite contraseña" class="form-control input-md" 
           data-match="#Contraseña" data-match-error="Atenção! As senhas não estão iguais." required="">
           </div>
         </div>
@@ -109,20 +109,20 @@
 
         <div class="form-group">
           <label class="col-md-4 control-label" for="Tipo" style="color: #F0FFFF">Tipo de usuario</label>
-          <div class="col-md-4">
+          <div class="col-md-4">          
         <select class="form-control" id="Tipo" name="txtipo">
          <option value="1">Organizador</option>
-         <option value="2">Voluntario</option>
+         <option value="2">Voluntario</option>         
         </select>
           </div>
         </div>
-
+      
                <!-- Button -->
         <div class="form-group">
            <div class="col-md-4">
            </div>
           <div class="col-md-4">
-          <input type="hidden" value="create" name="action"/>
+          <input type="hidden" value="create" name="action"/>                            
             <button class="btn btn-primary" block="true" type="submit" value="create"> Aceptar </button>
           </div>
         </div>
@@ -130,25 +130,25 @@
 </div>
 
  <script src="../js/jquery-1.10.2.js"></script>
-
+  
   <!-- Bootstrap Js -->
     <script src="../js/bootstrap.min.js"></script>
-
+  
   <script src="../materialize/js/materialize.min.js"></script>
-
+  
     <!-- Metis Menu Js -->
     <script src="../js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
     <script src="../js/morris/raphael-2.1.0.min.js"></script>
     <script src="../js/morris/morris.js"></script>
-
-
+  
+  
   <script src="../js/easypiechart.js"></script>
   <script src="../js/easypiechart-data.js"></script>
-
+  
    <script src="../js/Lightweight-Chart/jquery.chart.js"></script>
-
+  
     <!-- Custom Js -->
-    <script src="../js/custom-scripts.js"></script>
+    <script src="../js/custom-scripts.js"></script> 
 </body>
 </html>
