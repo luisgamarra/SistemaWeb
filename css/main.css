@@ -479,6 +479,40 @@ div.campana:hover p{
   opacity: 0;
 }
 
+/**Contadores**/
+.parallax::before{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+div.contador{
+  position: relative;
+  height: auto;
+}
+div.contador::before{
+  background-image: url(../img/fondo.jpeg);
+  content: '';
+}
+ul.resumen-campana{
+  position: relative;
+  padding: 120px 0;
+}
+ul.resumen-campana li{
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+@media only screen and (min-width: 768px){
+  ul.reumen-campana li{
+    width: 25%;
+  }
+}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
