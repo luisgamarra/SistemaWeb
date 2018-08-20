@@ -489,13 +489,14 @@ div.campana:hover p{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  background-attachment: fixed;
 }
 div.contador{
   position: relative;
   height: auto;
 }
 div.contador::before{
-  background-image: url(../img/fondo.jpeg);
+  background-image: url(../img/utpnoche.jpg);
   content: '';
 }
 ul.resumen-campana{
@@ -506,12 +507,23 @@ ul.resumen-campana li{
   width: 50%;
   float: left;
   text-align: center;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-family: 'Oswald',sans-serif;
+  font-size: 24px;
 }
-@media only screen and (min-width: 768px){
-  ul.reumen-campana li{
+@media only screen and (min-width:768px){
+  ul.resumen-campana li{
     width: 25%;
   }
 }
+p.numero{
+  color: #da273e;
+  font-size: 4em;
+  display: block;
+  margin: 0 0 10px 0;
+}
+
 
 /* ==========================================================================
    Helper classes
