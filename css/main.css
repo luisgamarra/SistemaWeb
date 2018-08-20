@@ -453,7 +453,7 @@ position: relative;
 div.campana img{
   max-width: 100%;
   filter: gray;
-  -webkit-filter:grayscale(1);
+/*  -webkit-filter:grayscale(1);*/
   -webkit-transition: all .5s ease-in-out;
 }
 div.campana:hover img{
