@@ -10,18 +10,18 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Target Material Design Bootstrap Admin Template</title> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="../js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="../css/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="../css/cssCharts.css"> 
 
 
 </head>
@@ -65,10 +65,10 @@ function logout() {
 
     <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
+<!--<li><li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
 </li>
-<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-</li> 
+<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+</li> -->
 <li><a href="logout.php" > <i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </li>
 </ul>
@@ -80,7 +80,19 @@ function logout() {
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu waves-effect waves-dark" href="CampaniaSocial.php"><i class="fa fa-dashboard"></i> Campañas Sociales</a>
+                        <a class="active-menu waves-effect waves-dark" href="ListaCampania.php"><i class="fa fa-dashboard"></i> Gestionar campañas</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Configuracion Usuario<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="MyProfile.php">Mi perfil</a>
+                            </li>
+                            <li>
+                                <a href="#">Cambiar contraseña</a>
+                            </li>                            
+                        </ul>
                     </li>
                     
                     <li>
@@ -212,19 +224,19 @@ function logout() {
   <!-- Bootstrap Js -->
     <script src="../js/bootstrap.min.js"></script>
   
-  <script src="../materialize/js/materialize.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
   
     <!-- Metis Menu Js -->
     <script src="../js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="../js/morris/raphael-2.1.0.min.js"></script>
-    <script src="../js/morris/morris.js"></script>
+    <script src="../js/raphael-2.1.0.min.js"></script>
+    <script src="../js/morris.js"></script>
   
   
   <script src="../js/easypiechart.js"></script>
   <script src="../js/easypiechart-data.js"></script>
   
-   <script src="../js/Lightweight-Chart/jquery.chart.js"></script>
+   <script src="../js/jquery.chart.js"></script>
   
     <!-- Custom Js -->
     <script src="../js/custom-scripts.js"></script> 

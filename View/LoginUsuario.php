@@ -13,18 +13,18 @@
     <link rel="stylesheet" href="../css/style.css">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
     <!-- Bootstrap Styles-->
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="../css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="../js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="../js/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../js/Lightweight-Chart/cssCharts.css"> 
+    <link rel="stylesheet" href="../js/cssCharts.css"> 
 </head>
   <body>
 
@@ -47,7 +47,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li><a href="login.php">Iniciar Sesión</a></li>
-            <li class="active"><a href="registrarse.php">Regístrate</a></li>
+            <li class="active"><a href="RegistroUsuario.php">Regístrate</a></li>
 
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -98,19 +98,19 @@
   <!-- Bootstrap Js -->
     <script src="../js/bootstrap.min.js"></script>
   
-  <script src="../materialize/js/materialize.min.js"></script>
+  <script src="../js/materialize.min.js"></script>
   
     <!-- Metis Menu Js -->
     <script src="../js/jquery.metisMenu.js"></script>
     <!-- Morris Chart Js -->
-    <script src="../js/morris/raphael-2.1.0.min.js"></script>
-    <script src="../js/morris/morris.js"></script>
+    <script src="../js/raphael-2.1.0.min.js"></script>
+    <script src="../js/morris.js"></script>
   
   
   <script src="../js/easypiechart.js"></script>
   <script src="../js/easypiechart-data.js"></script>
   
-   <script src="../js/Lightweight-Chart/jquery.chart.js"></script>
+   <script src="../js/jquery.chart.js"></script>
   
     <!-- Custom Js -->
     <script src="../js/custom-scripts.js"></script> 

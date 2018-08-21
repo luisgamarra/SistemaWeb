@@ -16,12 +16,12 @@ session_start();
     <!-- FontAwesome Styles-->
     <link href="../css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="../js/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="../css/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="../js/cssCharts.css"> 
+    <link rel="stylesheet" href="../css/cssCharts.css"> 
 
 
 </head>
@@ -65,9 +65,9 @@ function logout() {
 
     <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
-<!--<li></li>
-<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+<!--<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
+</li>
+<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 </li> -->
 <li><a href="logout.php" > <i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </li>
@@ -133,161 +133,94 @@ function logout() {
     <div id="page-wrapper">
       <div class="header"> 
                         <h1 class="page-header">
-                            Campañas Sociales
-                        </h1>           
-     </div>
+                            Mi perfil
+                        </h1>
+            
+                  
+      </div>
 
             <div id="page-inner">
+
+                <?php
+        conectar();
+            $cod = $_SESSION["cod"];
+            
+            $sql = "select * from users where user_id='$cod'";
+            $tabla = ejecutar($sql)or die(mysql_error());
+            $r=  mysql_fetch_array($tabla)
+        ?>
+
+<form class="form-horizontal" action="../Controller/ModificarUsuario.php" method="post">
+
+
+                <div class="formRow">
+                <div class="formRowTitle">
+                                Nombre 
+                </div>                            
+                <div class="col-md-5" >
+                <input value="<?=$r[1]?>" id="Nombre" name="txtnom" type="text" placeholder="Nombre" class="form-control input-md " required="">
+                </div>
+                </div>
+
+            </br> </br> </br>
+
+                <div class="formRow">
+                <div class="formRowTitle">
+                                Apellido 
+                </div>                            
+                <div class="col-md-5" >
+                <input value="<?=$r[2]?>" id="Apellido" name="txtape" type="text" placeholder="Apellido" class="form-control input-md " required="">
+                </div>
+                </div>
+
+            </br> </br> </br>
+
+                <div class="formRow">
+                <div class="formRowTitle">
+                                email 
+                </div>                            
+                <div class="col-md-5" >
+                <input value="<?=$r[3]?>" id="Email" name="txtemail" type="text" placeholder="Email" class="form-control input-md " required="">
+                </div>
+                </div>
+
+            </br> </br> </br>
+
+                <div class="formRow">
+                <div class="formRowTitle">
+                                Celular
+                </div>                            
+                <div class="col-md-5" >
+                <input value="<?=$r[5]?>" id="Celular" name="txtcel" type="text" placeholder="Celular" class="form-control input-md " required="">
+                </div>
+                </div>
+
+            </br> </br> </br>
+
+
+        <div class="form-group">           
+          <div class="col-md-2">
+                                     
+            
+                <a class='btn btn-info col-md-offset-1' href='ListaCampania.php'>Cancelar</a>
             
 
+        </div>
 
+            <div class="col-md-2">
+          <input type="hidden" value="modifica" name="action"/>                            
+            <button class="btn btn-success" block="true" type="submit" value="modifica"> Guardar Cambios </button>
+          </div>
+
+          
+        </div>
+
+         
       
-        <!-- /. ROW  --> 
-        <div class="row">                 
-                           <div class="table-responsive">        
-                  <table class="table table-bordered table-dark" width="500" border="3" >
-                <tr><th>N°</th><th>Nombre</th><th>Lugar</th><th>Vacantes</th><th>Fecha de Creacion</th></th><th>Editar</th></th><th>Eliminar</th></tr>
-                <?php
-                
-                
-                $a=$_SESSION["cod"];
-                $sql = "select * from campaigns where user_id='$a'";
-                $result = ejecutar($sql);
-                $numeracion=1;
+       </form>
 
-if(empty($_GET['idcamp'])){
-
-}else {
-
-    echo "<form action='../Controller/modicampania.php?idcamp=".$_GET['idcamp']."' method='post'>
-    <div class='form-group row'>";
-
-}
-
-
-
-                while ($row = mysql_fetch_array($result)) {
-
-                echo "<tr><td align='center'>".$numeracion."</td>";
-//titulo
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["1"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtitle' name='txtitle' placeholder='".$row["1"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["1"]."</td>";
-  }
-
-}
-//lugar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["2"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtplace' name='txtplace' placeholder='".$row["2"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["2"]."</td>";
-  }
-
-}
-//vacantes
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["3"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtvacant' name='txtvacant' placeholder='".$row["3"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["3"]."</td>";
-  }
-
-}
-//Fecha
-echo "<td align='center'>".$row["4"]."</td>";
-//Modificar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>
-<a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<div class='form-group row'><td align='center'><input class='btn btn-warning' id='Guardar' type='submit' value='Guardar' name='btnenviar'><a class='btn btn-info col-md-offset-1' href='CampaniaSocial.php'>Cancelar</a></td></div>";
-  }else {
-    echo "<td align='center'><a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-  }
-
-}
-
-//Eliminar
-echo "<td align='center'><a class='btn btn-danger' href='operaciones/eliminarcampania.php?idcamp=".$row["0"]."'>Eliminar</a></td></tr>";
-
-
-
-
-                
-                $numeracion++;
-            }
-
-            if(empty($_GET['idprodmod'])){
-
-}else {
-
-echo "</div></form>";
-}
-                ?>
-
-
-                
-                
-                </table>                  
-              </div>
-            </div><!--/.row-->
-          
-          
-     
-        <div class="row">
-        <div class="col-md-5">             
-          </div>              
-            <div class="col-md-7"> 
-        </div>          
-        </div> 
-       
-        
-        
-                <div class="row">
-                    <div class="col-xs-12">            
-                    </div> 
-                </div>
-
-        <div class="row">
-        <div class="col-md-12">        
-          </div>    
-        </div>  
-                <!-- /. ROW  -->
-
-     
-        
-        
-        
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">          
-                    </div>
-
-                    <div class="col-md-8 col-sm-12 col-xs-12">                              
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+   
+         
 
          <div class="fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
@@ -300,7 +233,7 @@ echo "</div></form>";
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
     </ul>
   </div>
-    
+    </br></br> </br> </br>
         <footer><p>All right reserved. Template by: <a href="https://webthemez.com/admin-template/">WebThemez.com</a></p>
         
             </footer>

@@ -22,6 +22,7 @@ session_start();
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="../js/cssCharts.css"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 </head>
@@ -62,12 +63,13 @@ function logout() {
           </b> <i class="material-icons right">arrow_drop_down</i></a></li>
             </ul>
         </nav>
+      </div>
 
     <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
-<!--<li></li>
-<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+<!--<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
+</li>
+<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 </li> -->
 <li><a href="logout.php" > <i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </li>
@@ -78,9 +80,9 @@ function logout() {
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
+                </br></br>
                     <li>
-                        <a class="active-menu waves-effect waves-dark" href="ListaCampania.php"><i class="fa fa-dashboard"></i> Gestionar campañas</a>
+                        <a class="active-menu waves-effect waves-dark" href="CampaniaSocial.php"><i class="fa fa-dashboard"></i> Gestionar campañas</a>
                     </li>
 
                     <li>
@@ -131,163 +133,64 @@ function logout() {
         <!-- /. NAV SIDE  -->
       
     <div id="page-wrapper">
-      <div class="header"> 
+      
+
+            <div class="container">
+              <div class="header"> 
                         <h1 class="page-header">
                             Campañas Sociales
-                        </h1>           
-     </div>
+                        </h1>     
+                        <a href='RegistroCampania.php'><button class='btn btn-primary '>Crear</button></a>
+                         <a href='CampaniaSocial.php'><button class='btn btn-primary '>Detalle</button></a>  
 
-            <div id="page-inner">
-            
+              </div>
 
+</br>  
 
-      
-        <!-- /. ROW  --> 
-        <div class="row">                 
-                           <div class="table-responsive">        
-                  <table class="table table-bordered table-dark" width="500" border="3" >
-                <tr><th>N°</th><th>Nombre</th><th>Lugar</th><th>Vacantes</th><th>Fecha de Creacion</th></th><th>Editar</th></th><th>Eliminar</th></tr>
-                <?php
+  <div class="row">         
+          
+
+<?php
                 
                 
                 $a=$_SESSION["cod"];
                 $sql = "select * from campaigns where user_id='$a'";
-                $result = ejecutar($sql);
-                $numeracion=1;
+                $result = ejecutar($sql);       
 
-if(empty($_GET['idcamp'])){
+while ($row = mysql_fetch_array($result)) {
 
-}else {
+echo "
+        
+        <div class='col-md-4 col-sm-6 col-xs-12 hero-feature' >
+            <div class='w3-container' >
+                <div class='w3-card-4' >
+                    <img src='../Imagenes/".$row["5"]."' alt='Norway' width='100%'' height='200'>
+                    <div class='w3-container w3-center' >
+                        <br/>
+                        <p>".$row["1"]."</p>
+                        <p>".$row["4"]."</p>                      
+                        <br/>
+                    </div>
+                </div>
+            </div>
+            <br/>
+         
+                           
+        </div> ";
+              }
 
-    echo "<form action='../Controller/modicampania.php?idcamp=".$_GET['idcamp']."' method='post'>
-    <div class='form-group row'>";
-
-}
-
-
-
-                while ($row = mysql_fetch_array($result)) {
-
-                echo "<tr><td align='center'>".$numeracion."</td>";
-//titulo
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["1"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtitle' name='txtitle' placeholder='".$row["1"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["1"]."</td>";
-  }
-
-}
-//lugar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["2"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtplace' name='txtplace' placeholder='".$row["2"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["2"]."</td>";
-  }
-
-}
-//vacantes
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["3"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtvacant' name='txtvacant' placeholder='".$row["3"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["3"]."</td>";
-  }
-
-}
-//Fecha
-echo "<td align='center'>".$row["4"]."</td>";
-//Modificar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>
-<a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<div class='form-group row'><td align='center'><input class='btn btn-warning' id='Guardar' type='submit' value='Guardar' name='btnenviar'><a class='btn btn-info col-md-offset-1' href='CampaniaSocial.php'>Cancelar</a></td></div>";
-  }else {
-    echo "<td align='center'><a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-  }
-
-}
-
-//Eliminar
-echo "<td align='center'><a class='btn btn-danger' href='operaciones/eliminarcampania.php?idcamp=".$row["0"]."'>Eliminar</a></td></tr>";
-
-
-
-
-                
-                $numeracion++;
-            }
-
-            if(empty($_GET['idprodmod'])){
-
-}else {
-
-echo "</div></form>";
-}
-                ?>
-
-
-                
-                
-                </table>                  
-              </div>
-            </div><!--/.row-->
-          
-          
-     
-        <div class="row">
-        <div class="col-md-5">             
-          </div>              
-            <div class="col-md-7"> 
-        </div>          
-        </div> 
+              ?>  
+                  </div>          
+               
        
-        
-        
-                <div class="row">
-                    <div class="col-xs-12">            
-                    </div> 
-                </div>
 
-        <div class="row">
-        <div class="col-md-12">        
-          </div>    
-        </div>  
                 <!-- /. ROW  -->
 
      
         
         
         
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">          
-                    </div>
-
-                    <div class="col-md-8 col-sm-12 col-xs-12">                              
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+                
 
          <div class="fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
@@ -302,13 +205,14 @@ echo "</div></form>";
   </div>
     
         <footer><p>All right reserved. Template by: <a href="https://webthemez.com/admin-template/">WebThemez.com</a></p>
-        
-            </footer>
-            </div>
+        </footer>
+
+           </div>
             <!-- /. PAGE INNER  -->
+
         </div>
         <!-- /. PAGE WRAPPER  -->
-    </div>
+    
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
@@ -334,6 +238,7 @@ echo "</div></form>";
     <!-- Custom Js -->
     <script src="../js/custom-scripts.js"></script> 
  
+
 
 </body>
 

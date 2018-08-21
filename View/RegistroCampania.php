@@ -65,9 +65,9 @@ function logout() {
 
     <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
-<!--<li></li>
-<a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+<!--<li><a href="MyProfile.php"><i class="fa fa-user fa-fw"></i> My Profile</a>
+</li>
+<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
 </li> -->
 <li><a href="logout.php" > <i class="fa fa-sign-out fa-fw"></i> Logout</a>
 </li>
@@ -84,7 +84,7 @@ function logout() {
                     </li>
 
                     <li>
-                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Configuracion Usuario<span class="fa arrow"></span></a>
+                        <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Configuracion<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="MyProfile.php">Mi perfil</a>
@@ -132,163 +132,74 @@ function logout() {
       
     <div id="page-wrapper">
       <div class="header"> 
+      </br>
                         <h1 class="page-header">
-                            Campañas Sociales
+                            Nueva Campaña
                         </h1>           
      </div>
 
-            <div id="page-inner">
+            <div class="page-inner">
             
 
 
       
-        <!-- /. ROW  --> 
-        <div class="row">                 
-                           <div class="table-responsive">        
-                  <table class="table table-bordered table-dark" width="500" border="3" >
-                <tr><th>N°</th><th>Nombre</th><th>Lugar</th><th>Vacantes</th><th>Fecha de Creacion</th></th><th>Editar</th></th><th>Eliminar</th></tr>
-                <?php
-                
-                
-                $a=$_SESSION["cod"];
-                $sql = "select * from campaigns where user_id='$a'";
-                $result = ejecutar($sql);
-                $numeracion=1;
-
-if(empty($_GET['idcamp'])){
-
-}else {
-
-    echo "<form action='../Controller/modicampania.php?idcamp=".$_GET['idcamp']."' method='post'>
-    <div class='form-group row'>";
-
-}
-
-
-
-                while ($row = mysql_fetch_array($result)) {
-
-                echo "<tr><td align='center'>".$numeracion."</td>";
-//titulo
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["1"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtitle' name='txtitle' placeholder='".$row["1"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["1"]."</td>";
-  }
-
-}
-//lugar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["2"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtplace' name='txtplace' placeholder='".$row["2"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["2"]."</td>";
-  }
-
-}
-//vacantes
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>".$row["3"]."</td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<td align='center'>
-<div class='container col-sm-6 col-md-offset-3'>
-        <input type='text' class='form-control' id='txtvacant' name='txtvacant' placeholder='".$row["3"]."'>
-
-    </td>";
-  }else {
-    echo "<td align='center'>".$row["3"]."</td>";
-  }
-
-}
-//Fecha
-echo "<td align='center'>".$row["4"]."</td>";
-//Modificar
-if(empty($_GET['idcamp'])){
-echo "<td align='center'>
-<a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-}else {
-  if ($_GET['idcamp']==$row["0"]) {
-    echo "<div class='form-group row'><td align='center'><input class='btn btn-warning' id='Guardar' type='submit' value='Guardar' name='btnenviar'><a class='btn btn-info col-md-offset-1' href='CampaniaSocial.php'>Cancelar</a></td></div>";
-  }else {
-    echo "<td align='center'><a class='btn btn-success' href='CampaniaSocial.php?idcamp=".$row["0"]."'>Modificar</a></td>";
-  }
-
-}
-
-//Eliminar
-echo "<td align='center'><a class='btn btn-danger' href='operaciones/eliminarcampania.php?idcamp=".$row["0"]."'>Eliminar</a></td></tr>";
-
-
-
-
-                
-                $numeracion++;
-            }
-
-            if(empty($_GET['idprodmod'])){
-
-}else {
-
-echo "</div></form>";
-}
-                ?>
-
-
-                
-                
-                </table>                  
-              </div>
-            </div><!--/.row-->
-          
-          
-     
-        <div class="row">
-        <div class="col-md-5">             
-          </div>              
-            <div class="col-md-7"> 
-        </div>          
-        </div> 
        
-        
-        
-                <div class="row">
-                    <div class="col-xs-12">            
-                    </div> 
-                </div>
-
-        <div class="row">
-        <div class="col-md-12">        
-          </div>    
-        </div>  
-                <!-- /. ROW  -->
-
      
-        
-        
-        
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">          
-                    </div>
 
-                    <div class="col-md-8 col-sm-12 col-xs-12">                              
-                    </div>
-                </div>
-                <!-- /. ROW  -->
+        <form class="form-horizontal" action="../Controller/registrarcampania.php" method="post" enctype="multipart/form-data">
+        
+                    
+      
+          <div class="form-bottom">
+        <!-- Text input-->
+        <div class="form-group" >
+          <label class="col-md-4 control-label" for="title" style="color: #000000" ><h3>Titulo : </h3></label>
+          <div class="col-md-5" >
+          <input id="title" name="txtitulo" type="text" placeholder="Titulo" class="form-control input-md" required="">
+          </div>
+        </div>
 
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="lugar" style="color: #000000" ><h3>Lugar : </h3></label>
+          <div class="col-md-5">
+          <input id="lugar" name="txtlugar" type="text" placeholder="Lugar" class="form-control input-md" required="">
+          </div>
+        </div>
+
+          
+           <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="vacante" style="color: #000000" ><h3>Vacantes : </h3></label>
+          <div class="col-md-4">
+          <input id="vacante" name="txtvacante" type="number" placeholder="Vacantes" class="form-control input-md"  required="">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="imagen" style="color: #000000" ><h3>Imagen : </h3></label>
+          <div class="col-md-4">
+          </br>
+        <input type="file" name="imagen" id="imagen"/>
+        </div>
+        </div>
+          
+               <!-- Button -->
+        <div class="form-group">
+           <div class="col-md-4">
+           </div>
+          <div class="col-md-4">
+          <input type="hidden" value="create" name="action"/>                            
+            <button class="btn btn-primary" block="true" type="submit" value="create"> Guardar </button>
+          </div>
+        </div>
+
+      </div>
+    </form>                
+                        
+        
+            
+      
          <div class="fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
       <i class="material-icons">menu</i>
@@ -304,7 +215,7 @@ echo "</div></form>";
         <footer><p>All right reserved. Template by: <a href="https://webthemez.com/admin-template/">WebThemez.com</a></p>
         
             </footer>
-            </div>
+              </div> 
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
